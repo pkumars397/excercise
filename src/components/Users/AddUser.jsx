@@ -3,16 +3,12 @@ import Card from "../UI/Card";
 import Button from "../UI/Button";
 import classes from "./AddUser.module.css";
 
-const AddUser = () => {
-  const users = [
-    { name: "prashant", age: 20 },
-    { name: "prashant", age: 20 },
-  ];
+const AddUser = (props) => {
   const [enteredUserName, setEnteredUserName] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
+
   const addUserHandler = (event) => {
     event.preventDefault();
-    console.log(enteredUserName, enteredAge);
     if (
       enteredUserName.trim().length == 0 ||
       enteredAge.trim().length == 0 ||
@@ -20,6 +16,8 @@ const AddUser = () => {
     ) {
       return;
     }
+    props.onAddUser(enteredUserName, enteredAge);
+
     setEnteredUserName("");
     setEnteredAge("");
   };
@@ -27,9 +25,11 @@ const AddUser = () => {
   const userNameHandler = (e) => {
     setEnteredUserName(e.target.value);
   };
+
   const ageHandler = (e) => {
     setEnteredAge(e.target.value);
   };
+
   return (
     <>
       <Card className={classes.input}>
