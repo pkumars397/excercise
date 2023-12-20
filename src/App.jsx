@@ -12,13 +12,8 @@ function App() {
       ];
     });
   };
-  console.log(userArr);
-  return (
-    <>
-      <AddUser onAddUser={UserHandler} />
-      <UsersList users={userArr} />;
-    </>
-  );
+
+  return [<AddUser onAddUser={UserHandler} />, <UsersList users={userArr} />];
 }
 
 export default App;
