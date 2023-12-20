@@ -4,11 +4,16 @@ import UsersList from "./components/Users/UsersList.jsx";
 
 function App() {
   const [userArr, setUserArr] = useState([]);
-  const UserHandler = (uname, uage) => {
+  const UserHandler = (uname, uage, cname) => {
     setUserArr((prevUserArr) => {
       return [
         ...prevUserArr,
-        { name: uname, age: uage, key: Math.random().toString() },
+        {
+          name: uname,
+          age: uage,
+          key: Math.random().toString(),
+          college: cname,
+        },
       ];
     });
   };
